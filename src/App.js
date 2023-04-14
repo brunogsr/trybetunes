@@ -19,11 +19,11 @@ class App extends React.Component {
             path="/"
             render={ (props) => <Login { ...props } /> }
           />
-          <Route path="/search" component={ Search } />
-          <Route path="/album" component={ Album } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/profile" component={ Profile } />
-          <Route path="/profile/edit" component={ ProfileEdit } />
+          <Route exact path="/search" component={ Search } />
+          <Route exact path="/album/:id" component={ Album } />
+          <Route exact path="/favorites" component={ Favorites } />
+          <Route exact path="/profile" component={ Profile } />
+          <Route exact path="/profile/edit" component={ ProfileEdit } />
           <Route component={ NotFound } />
         </Switch>
       </BrowserRouter>

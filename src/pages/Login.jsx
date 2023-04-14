@@ -45,9 +45,9 @@ class Login extends React.Component {
     } = this.state;
 
     return (
-      <div data-test="page-login">
+      <div data-testid="page-login">
         { loading ? <Carregando /> : (
-          <form data-testid="page-login">
+          <form>
             <label htmlFor="input-login">
               Login
               <input
