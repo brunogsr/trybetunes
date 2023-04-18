@@ -5,27 +5,31 @@ import Carregando from './Carregando';
 
 class Header extends React.Component {
   state = {
-    name: '',
+    user: '',
     loading: true,
   };
 
-  componentDidMount() {
-    this.getUser();
-  }
-
-  async getUser() {
-    const user = await getUser();
+  async componentDidMount() {
+    const getUserFunc = await getUser();
     this.setState({
-      name: user.name,
+      user: getUserFunc,
       loading: false,
     });
   }
 
+  // async getUser() {
+  //   const user = await getUser();
+  //   this.setState({
+  //     user: user.user,
+  //     loading: false,
+  //   });
+  // }
+
   render() {
-    const { loading, name } = this.state;
+    const { loading, user } = this.state;
     return (
       <header data-testid="header-component">
-        { loading ? <Carregando /> : <p data-testid="header-user-name">{ name }</p> }
+        { loading ? <Carregando /> : <p data-testid="header-user-name">{ user.name }</p> }
         <div>
           <Link to="/search" data-testid="link-to-search">Search</Link>
           <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>

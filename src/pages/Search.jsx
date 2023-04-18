@@ -1,11 +1,17 @@
 import React from 'react';
 import Header from '../Component/Header';
+// import { getUser } from '../services/userAPI';
 
 class Search extends React.Component {
   state = {
     artist: '',
     isButtonDisabled: true,
   };
+
+  // async componentDidMount() {
+  //   const getUserFunc = await getUser();
+
+  // }
 
   validationFields = () => {
     const {

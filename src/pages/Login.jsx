@@ -5,20 +5,8 @@ import Carregando from '../Component/Carregando';
 
 class Login extends React.Component {
   state = {
-    loginValue: '',
-    isLoginButtonDisabled: true,
+    name: '',
     loading: false,
-  };
-
-  validationFields = () => {
-    const {
-      loginValue,
-    } = this.state;
-    const minValue = 3;
-    const valLogin = loginValue.length >= minValue;
-    this.setState({
-      isLoginButtonDisabled: !valLogin,
-    });
   };
 
   onInputChange = (event) => {
@@ -26,21 +14,23 @@ class Login extends React.Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    }, this.validationFields);
+    });
   };
 
-  onLoginButtonClick = () => {
+  onLoginButtonClick = async () => {
+    const { name } = this.state;
+    // await createUser({ name });
     this.setState({ loading: true }, async () => {
-      await createUser({ name: 'Name' });
+      await createUser({ name });
       const { history } = this.props;
       history.push('/search');
     });
   };
 
   render() {
+    const minCharacter = 3;
     const {
-      loginValue,
-      isLoginButtonDisabled,
+      name,
       loading,
     } = this.state;
 
@@ -53,18 +43,18 @@ class Login extends React.Component {
               <input
                 data-testid="login-name-input"
                 type="text"
-                name="loginValue"
+                name="name"
                 id="input-login"
                 placeholder="Name"
                 onChange={ this.onInputChange }
-                value={ loginValue }
+                value={ name }
               />
             </label>
             <button
               type="button"
               data-testid="login-submit-button"
               onClick={ this.onLoginButtonClick }
-              disabled={ isLoginButtonDisabled }
+              disabled={ name.length < minCharacter }
             >
               Entrar
             </button>
