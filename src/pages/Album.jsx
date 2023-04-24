@@ -21,7 +21,7 @@ class Album extends React.Component {
     this.setState({
       musicsArr,
     });
-    // console.log(musicsArr);
+    console.log(musicsArr);
   };
 
   render() {
@@ -43,7 +43,10 @@ class Album extends React.Component {
                 {musicObj.previewUrl && (
                   <div>
                     <h3>{musicObj.trackName}</h3>
-                    <MusicCard musicObj={ musicObj } />
+                    <MusicCard
+                      previewUrl={ musicObj.previewUrl }
+                      trackName={ musicObj.trackName }
+                    />
                   </div>
                 )}
               </div>
