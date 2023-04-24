@@ -21,7 +21,7 @@ class Album extends React.Component {
     this.setState({
       musicsArr,
     });
-    console.log(musicsArr);
+    // console.log(musicsArr);
   };
 
   render() {
