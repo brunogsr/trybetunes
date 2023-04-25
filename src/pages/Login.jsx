@@ -9,8 +9,7 @@ class Login extends React.Component {
     loading: false,
   };
 
-  onInputChange = (event) => {
-    const { target } = event;
+  onInputChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
       [name]: value,

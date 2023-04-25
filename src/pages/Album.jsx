@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Header from '../Component/Header';
-import MusicCard from '../Component/musicCard';
+import MusicCard from '../Component/MusicCard';
 import getMusics from '../services/musicsAPI';
 
 class Album extends React.Component {
@@ -21,7 +21,7 @@ class Album extends React.Component {
     this.setState({
       musicsArr,
     });
-    // console.log(musicsArr);
+    console.log(musicsArr);
   };
 
   render() {
@@ -45,7 +45,8 @@ class Album extends React.Component {
                     <h3>{musicObj.trackName}</h3>
                     <MusicCard
                       previewUrl={ musicObj.previewUrl }
-                      trackName={ musicObj.trackName }
+                      trackId={ musicObj.trackId }
+                      musicObj={ musicObj }
                     />
                   </div>
                 )}
